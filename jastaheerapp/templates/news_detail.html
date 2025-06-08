@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{{ news.title }}{% endblock %}
+
+{% block content %}
+<div class="container py-5 bg-white">
+  <h1 class="text-brown">{{ news.title }}</h1>
+  <p class="text-muted">Published on {{ news.created_at|date:"F j, Y" }}</p>
+  <div class="mt-4 text-start">
+    {{ news.content|linebreaks }}
+  </div>
+  <a href="{% url 'home' %}" class="btn mt-4" style="background-color: #6f4e37; color: white;">
+          ← Back
+        </a>
+</div>
+{% endblock %}

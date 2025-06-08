@@ -1,0 +1,580 @@
+{% load static %}
+{% include "registration/signup_modal.html" %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %} Jastaheer Technology {% endblock %}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-image: url("{% static 'images/background.png' %}");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #6c757d;
+    }
+    .brand {
+      font-weight: bold;
+      color: #4a2f1c;
+    }
+    .btn-brown {
+      background-color: #a76a3d;
+      color: white;
+    }
+    .btn-outline-brown {
+      border: 1px solid #a76a3d;
+      color: #a76a3d;
+    }
+    .icon-box {
+      padding: 1.5rem;
+      border: 1px solid #eee;
+      border-radius: 0.5rem;
+      text-align: center;
+      background-color: white;
+    }
+    .icon-box img {
+      width: 40px;
+      margin-bottom: 1rem;
+    }
+    .service-card {
+      border-radius: 1rem;
+      box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+    .service-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #6c5ce7;
+    }
+    .card-icon svg {
+      width: 64px;
+      height: 64px;
+      stroke: #7a4e2d;
+      margin-bottom: 15px;
+    }
+    .card {
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+     :root {
+      --primary-color: #0d6efd;
+      --dark-color: #1a1a2e;
+      --accent-color: #17a2b8;
+    }
+
+    
+
+
+
+
+    .section-title {
+      color: white;
+      font-weight: 600;
+    }
+
+    .card-title {
+      color: var(--brown-color);
+      font-size: 1.2rem;
+    }
+
+    .btn-custom {
+      background-color: var(--accent-color);
+      color: white;
+    }
+
+    .btn-custom:hover {
+      background-color: #138496;
+    }
+
+    .blog-meta {
+      font-size: 0.875rem;
+      color: #6c757d;
+    }
+
+    .blog-meta i {
+      margin-right: 4px;
+    }
+     body { background-color: #ffffff; color: #4b2e2e; }
+    .contact-section { padding: 60px 20px; background-color: #f8f4f0; }
+    .contact-card { background-color: #ffffff; border: 1px solid #d2b48c; border-radius: 10px; padding: 30px; }
+    .btn-brown { background-color: #4b2e2e; color: white; }
+    .btn-brown:hover { background-color: #3a1f1f; }
+    .form-control:focus { border-color: #4b2e2e; box-shadow: 0 0 0 0.2rem rgba(75, 46, 46, 0.25); }
+    .bg-brown {
+    background-color: #8B4513; /* SaddleBrown */
+}
+
+footer h5 {
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+footer p,
+footer li {
+    font-size: 0.95rem;
+}
+    .custom-card {
+    background-color: white;
+    border: 2px solid #4b2e2e; /* Brown border */
+}
+
+.text-brown {
+    color: #8B4513; /* Brown text */
+}
+
+.card-img-top {
+    height: 300px;
+    object-fit: cover;
+}
+
+  .btn-brown {
+    background-color: #5C4033;
+    color: #fff;
+  }
+
+  .btn-outline-brown {
+    border: 2px solid #5C4033;
+    color: #5C4033;
+  }
+
+  .btn-outline-brown:hover {
+    background-color: #5C4033;
+    color: #fff;
+  }
+
+  .bg-left {
+  background-image: url('/static/images/cover22.jpg');
+  background-size: cover;
+  
+  padding: 80px;
+}
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 18px;
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Platform Colors */
+.social-icon.facebook { background-color: #3b5998; }
+.social-icon.twitter { background-color: #1da1f2; }
+.social-icon.linkedin { background-color: #0077b5; }
+.social-icon.instagram { 
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+.social-icon.youtube { background-color: #ff0000; }
+.social-icon.whatsapp { background-color: #25d366; }
+.social-icon.tiktok { background-color: #010101; }
+.nav-link.active {
+    color: #6c4c1c !important; /* Jastaheer brown */
+    font-weight: 600;
+    border-bottom: 2px solid #6c4c1c; /* Optional underline */
+}
+/* balls */
+.background-balls {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.ball {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.6;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle, #ff5722, #6c4c1c);
+  animation: moveBall 20s infinite linear;
+}
+
+.ball:nth-child(1) { left: 5%; animation-duration: 2s; }
+.ball:nth-child(2) { left: 10%; animation-duration: 4s; }
+.ball:nth-child(3) { left: 20%; animation-duration: 6s; }
+.ball:nth-child(4) { left: 30%; animation-duration: 8s; }
+.ball:nth-child(5) { left: 40%; animation-duration: 10s; }
+.ball:nth-child(6) { left: 50%; animation-duration: 12s; }
+.ball:nth-child(7) { left: 60%; animation-duration: 14s; }
+.ball:nth-child(8) { left: 70%; animation-duration: 16s; }
+.ball:nth-child(9) { left: 80%; animation-duration: 18s; }
+.ball:nth-child(10) { left: 90%; animation-duration: 20s; }
+.ball:nth-child(11) { left: 5%; animation-duration: 20s; }
+.ball:nth-child(12) { left: 10%; animation-duration: 18s; }
+.ball:nth-child(13) { left: 20%; animation-duration: 16s; }
+.ball:nth-child(14) { left: 30%; animation-duration: 14s; }
+.ball:nth-child(15) { left: 40%; animation-duration: 12s; }
+.ball:nth-child(16) { left: 50%; animation-duration: 10s; }
+.ball:nth-child(17) { left: 60%; animation-duration: 8s; }
+.ball:nth-child(18) { left: 70%; animation-duration: 6s; }
+.ball:nth-child(19) { left: 80%; animation-duration: 4s; }
+.ball:nth-child(20) { left: 90%; animation-duration: 2s; }
+
+
+@keyframes moveBall {
+  0% { top: 100vh; transform: translateX(0) scale(1); }
+  100% { top: -100px; transform: translateX(100px) scale(0.7); }
+}
+/* sign up */
+.modal-header, .modal-footer {
+    background-color: #8B4513; /* SaddleBrown */
+    color: #ffffff;
+  }
+
+  .modal-body {
+    background-color: #ffffff;
+    color: #8B4513;
+  }
+
+  .btn-brown {
+    background-color: #8B4513;
+    color: #ffffff;
+    border: none;
+  }
+
+  .btn-brown:hover {
+    background-color: #5C3317;
+  }
+
+   .forgot-password {
+    display: block;
+    margin-top: 10px;
+    text-align: right;
+    font-size: 0.9rem;
+  }
+
+  .forgot-password a {
+    color: #8B4513;
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    text-decoration: underline;
+  }
+/* password change */
+.bg-brown {
+  background-color: #8B4513 !important;
+}
+.btn-brown {
+  background-color: #8B4513;
+  color: #ffffff;
+  border: none;
+}
+.btn-brown:hover {
+  background-color: #5C3317;
+}
+/* registration login */
+.bg-brown {
+  background-color: #5c4033; /* dark brown */
+}
+
+.text-brown {
+  color: #5c4033;
+}
+
+.btn-brown {
+  background-color: #5c4033;
+  color: white;
+  border: none;
+}
+
+.btn-brown:hover {
+  background-color: #3e2b21;
+  color: white;
+}
+/* hero section */
+.hero-section {
+  background-image: url("{% static 'images/hero-bg.jpg' %}");/* adjust path as per your CSS file location */
+  background-size: cover;
+  background-position: center;
+  height: 60vh;
+  position: relative; /* if you want to add overlays */
+  display: flex;
+  align-items: center;
+  color: white;
+  justify-content: center;
+}
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5); /* semi-transparent black */
+  z-index: 0;
+}
+
+.hero-section > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* contact */
+.btn-brown {
+  background-color: #7c4a2a;
+  color: white;
+  border: none;
+}
+
+.btn-brown:hover {
+  background-color: #5a351c;
+  color: white;
+}
+
+.input-group-text.bg-brown {
+  background-color: #7c4a2a;
+  border: none;
+}
+
+.contact-card {
+  background: #fff;
+  border-radius: 0.5rem;
+}
+
+.contact-info i {
+  color: #7c4a2a;
+}
+.icon-box:hover {
+  transform: scale(1.05);
+}
+
+.text-brown {
+    color: #a0522d; /* or any brown tone */
+}
+/* loader page */
+#loading-screen {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: #c6a08f;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+#loading-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+  </style>
+</head>
+<body>
+  <div id="loading-screen">
+  <div class="spinner-border text-brown" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+  <nav class="navbar navbar-expand-lg bg-white shadow-sm">
+  <div class="container">
+    <a class="navbar-brand brand" href="{% url 'home' %}">JASTAHEER INFORMATION TECHNOLOGY</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item"><a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'home' %}">Home</a></li>
+        <li class="nav-item"><a class="nav-link {% if request.path == '/services/' %}active{% endif %}" href="{% url 'services' %}">Services</a></li>
+        <li class="nav-item"><a class="nav-link {% if request.path == '/portfolio/' %}active{% endif %}" href="{% url 'portfolio' %}">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link {% if request.path == '/about/' %}active{% endif %}" href="{% url 'about' %}">About Us</a></li>
+        <li class="nav-item"><a class="nav-link {% if request.path == '/blog/' %}active{% endif %}" href="{% url 'blog_list' %}">Blog</a></li>
+        <li class="nav-item"><a class="nav-link {% if request.path == '/contact/' %}active{% endif %}" href="{% url 'contact' %}">Contact</a></li>
+         {% if user.is_authenticated %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-success fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Welcome, {{ user.username }}
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li>
+                <form method="POST" action="{% url 'logout' %}">
+                  {% csrf_token %}
+                  <button type="submit" class="dropdown-item">Logout</button>
+                </form>
+              </li>
+            </ul>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link text-brown" href="{% url 'login' %}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-brown" href="{% url 'signup' %}">Sign Up</a>
+          </li>
+           {% endif %}
+        <li class="nav-item ms-3"><a class="btn btn-brown" href="#" data-bs-toggle="modal" data-bs-target="#buyDataModal">Buy Data</a></li>
+      </ul>
+    </div>
+  </div>
+</nav> 
+  <section class="py-5 text-center">
+    <div class="container">
+      <div class="background-balls">
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+      </div>
+      <!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Sign In</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          {{ login_form.as_p }}
+          <div class="forgot-password">
+            <a href="{% url 'password_reset' %}">Forgot Password?</a>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-brown">Sign In</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+        {% block content %}
+
+        {% endblock %}
+
+        </blockquote>
+    </div>
+</section> 
+
+{% load tz %}
+<footer class="bg-brown text-white py-5 mt-5">
+  <div class="container">
+    <div class="row">
+      <!-- Column 1: Company Info -->
+      <div class="col-md-3">
+        <h5>Jastaheer Information Technology</h5>
+        <p>We specialize in software, website, and mobile app development tailored for businesses and entrepreneurs.</p>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div class="col-md-3">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="{% url 'home' %}" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="{% url 'about' %}" class="text-white text-decoration-none">About</a></li>
+          <li><a href="{% url 'services' %}" class="text-white text-decoration-none">Services</a></li>
+          <li><a href="{% url 'blog_list' %}" class="text-white text-decoration-none">Blog</a></li>
+          <li><a href="{% url 'contact' %}" class="text-white text-decoration-none">Contact</a></li>
+          <li><a href="{% url 'terms' %}" class="text-white text-decoration-none">Tarms of Service</a></li>
+          <li><a href="{% url 'privacy' %}" class="text-white text-decoration-none">privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Services -->
+      <div class="col-md-3">
+        <h5>Our Services</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-white text-decoration-none">Web Development</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Mobile App Development</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Software Solutions</a></li>
+          <li><a href="#" class="text-white text-decoration-none">UI/UX Design</a></li>
+          <li><a href="#" class="text-white text-decoration-none">IT Consulting</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Contact Info -->
+      <div class="col-md-3">
+        <h5>Contact Us</h5>
+        <ul class="list-unstyled">
+          <li><i class="fas fa-envelope me-2"></i> info@jastaheer.com</li>
+          <li><i class="fas fa-phone me-2"></i> +234 802 228 0881</li>
+          <li><i class="fas fa-map-marker-alt me-2"></i> Kano, Nigeria</li>
+        </ul>
+        <div class="mt-3">
+          <a href="https://www.facebook.com/share/1Bni55hpMF/" class="social-icon facebook" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/jastaheer_it?utm_source=qr&igsh=OXZnMTIxc3RtZmpn" class="social-icon instagram" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://youtube.com/@jastaheerinformationtechnology?si=9bIxgO-iC5hltIdh" class="social-icon youtube" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <!-- <a href="https://twitter.com/jastaheer" class="social-icon twitter" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>-->
+          <!-- <a href="https://linkedin.com/company/jastaheer" class="social-icon linkedin" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>-->
+          <!-- <a href="https://wa.me/2348022280881" class="social-icon whatsapp" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>-->
+        
+        </div>
+      </div>
+    </div>
+    <hr class="bg-light mt-4" />
+    <div class="text-center small bg-dark py-3">
+      &copy; {% now "Y" %} Jastaheer Technology. All rights reserved.
+    </div>
+  </div>
+</footer>
+<!-- Buy Data Modal -->
+<div class="modal fade" id="buyDataModal" tabindex="-1" aria-labelledby="buyDataModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content rounded-4">
+      <div class="modal-header">
+        <h5 class="modal-title" id="buyDataModalLabel">Buy Data</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Coming Soon >>>>>>> Under development</p>
+      </div>
+      <div class="modal-footer">
+        <a href="{% url 'contact' %}" class="btn btn-brown">Contact Us</a>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  window.addEventListener('load', function () {
+    const loader = document.getElementById('loading-screen');
+    loader.classList.add('hidden');
+  });
+</script>
+</body>
+</html>

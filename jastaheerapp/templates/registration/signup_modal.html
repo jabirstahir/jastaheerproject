@@ -1,0 +1,20 @@
+<!-- templates/registration/signup_modal.html -->
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <form method="POST" action="{% url 'signup' %}">
+        {% csrf_token %}
+        <div class="modal-header">
+          <h5 class="modal-title" id="signupModalLabel">Sign Up</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          {{ signup_form.as_p }}
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-brown">Register</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

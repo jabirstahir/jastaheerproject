@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="container mt-5" style="max-width: 550px;">
+  <div class="card shadow rounded-4 p-4" style="background-color: #fff;">
+    <h2 class="text-center mb-4 bg-brown" style="color: #fff;">Create Your Account</h2>
+    <form method="post" novalidate>
+      {% csrf_token %}
+      {% for field in form %}
+        <div class="mb-3">
+          <label for="{{ field.id_for_label }}" class="form-label" style="color: #5c3d2e;">
+            {{ field.label }}
+          </label>
+          <div class="input-group rounded-3 shadow-sm">
+            {% if field.name == 'username' %}
+              <span class="input-group-text bg-brown"><i class="bi bi-person text-white"></i></span>
+            {% elif field.name == 'email' %}
+              <span class="input-group-text bg-brown"><i class="bi bi-envelope "></i></span>
+            {% elif field.name == 'full_name' %}
+              <span class="input-group-text bg-brown"><i class="bi bi-person-lines-fill text-white"></i></span>
+            {% elif field.name == 'mobile_number' %}
+              <span class="input-group-text bg-brown"><i class="bi bi-telephone text-white"></i></span>
+            {% elif field.name == 'password1' or field.name == 'password2' %}
+              <span class="input-group-text bg-brown"><i class="bi bi-lock text-white"></i></span>
+            {% endif %}
+            {{ field|add_class:"form-control border-0" }}
+          </div>
+          {% if field.help_text %}
+            <div class="form-text text-muted">{{ field.help_text|safe }}</div>
+          {% endif %}
+          {% if field.errors %}
+            <div class="text-danger small mt-1">{{ field.errors }}</div>
+          {% endif %}
+        </div>
+      {% endfor %}
+      <button type="submit" class="btn btn-brown w-100 rounded-pill mt-3">Sign Up</button>
+    </form>
+
+    <div class="text-center mt-3">
+      <p class="mb-0 text-muted">Already have an account?
+        <a href="{% url 'login' %}" class="text-decoration-none" style="color: #5c3d2e;">Log in</a>
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}

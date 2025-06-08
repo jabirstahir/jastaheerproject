@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %} About Us {% endblock %}
+
+{% block content %}
+<section id="about" class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold">About Us</h2>
+            <p class="lead text-muted">Driven by Innovation, Focused on Results</p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <p class="fs-5"><strong>Jastaheer  Information Technology</strong> is a leading software solutions provider dedicated to helping businesses unlock their full digital potential. We specialize in <strong>software development, website development, and mobile app development</strong> — all crafted with precision and tailored to your specific needs.</p>
+                <p class="fs-5"> Our team of expert developers and designers bring innovative ideas to life, delivering scalable and efficient technology solutions that drive business success. At Jastaheer Technology, we are passionate about creating impact through code, design, and seamless user experience.</p>
+                <p class="fs-5"> Whether you're a startup or an established enterprise, we partner with you to build digital products that inspire, engage, and perform. Let’s shape the future together.</p>
+            </div>
+        </div>
+        </div>
+        <a href="{% url 'home' %}" class="btn mt-4" style="background-color: #6f4e37; color: white;">
+          ← Back
+        </a>
+        </section>
+{% endblock %}

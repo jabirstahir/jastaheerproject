@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %} Portfolio {% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <h1 class="text-center fw-bold text-white mb-5">Our Work</h1>
+  <p class="text-center text-white mb-5">
+    Explore a selection of our completed projects that highlight our expertise in crafting custom digital solutions for businesses across various industries. From web platforms to mobile applications, we turn ideas into reality.
+  </p>
+
+  <div class="row g-4 justify-content-center">
+
+    <!-- Web Application -->
+    <div class="col-md-6 col-lg-4 col-xl-3">
+      <div class="card text-center p-4 h-100 shadow-sm">
+        <div class="card-icon mb-3">
+          <!-- SVG Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" width="40" height="40">
+            <path d="M3 5h18v14H3z" />
+            <path d="M8 21h8M9 17v4M15 17v4" />
+          </svg>
+        </div>
+        <h5 class="fw-bold">Web Application</h5>
+        <p>
+          A robust web-based platform designed for seamless internal business management, featuring user authentication, real-time dashboards, and secure data handling. Built with Django and React.
+        </p>
+      </div>
+    </div>
+
+    <!-- E-commerce Website -->
+    <div class="col-md-6 col-lg-4 col-xl-3">
+      <div class="card text-center p-4 h-100 shadow-sm">
+        <div class="card-icon mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" width="40" height="40">
+            <path d="M3 3h18v2H3zM6 6v12h12V6z" />
+            <circle cx="9" cy="19" r="1" />
+            <circle cx="15" cy="19" r="1" />
+          </svg>
+        </div>
+        <h5 class="fw-bold">E-commerce Website</h5>
+        <p>
+          A dynamic and scalable e-commerce solution including product filtering, payment gateway integration, and a customer-friendly checkout system. Designed to boost conversions and sales for a retail brand.
+        </p>
+      </div>
+    </div>
+
+    <!-- Mobile Application -->
+    <div class="col-md-6 col-lg-4 col-xl-3">
+      <div class="card text-center p-4 h-100 shadow-sm">
+        <div class="card-icon mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" width="40" height="40">
+            <rect x="6" y="2" width="12" height="20" rx="2" />
+            <path d="M12 18h.01" />
+          </svg>
+        </div>
+        <h5 class="fw-bold">Mobile Application</h5>
+        <p>
+          A feature-rich mobile app enabling real-time chat, push notifications, and offline data access. Developed using Flutter for both Android and iOS platforms, with Firebase backend support.
+        </p>
+      </div>
+    </div>
+
+    <!-- Startup Website -->
+    <div class="col-md-6 col-lg-4 col-xl-3">
+      <div class="card text-center p-4 h-100 shadow-sm">
+        <div class="card-icon mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" width="40" height="40">
+            <rect x="2" y="4" width="20" height="16" rx="2" />
+            <path d="M10 9l5 3-5 3V9z" />
+          </svg>
+        </div>
+        <h5 class="fw-bold">Startup Website</h5>
+        <p>
+          A sleek, responsive landing page designed to help a tech startup launch their MVP and attract early adopters. Includes animations, lead capture forms, and blog integration for SEO.
+        </p>
+      </div>
+    </div>
+
+  </div>
+  <a href="{% url 'home' %}" class="btn mt-4" style="background-color: #6f4e37; color: white;">
+          ← Back
+        </a>
+</div>
+{% endblock %}

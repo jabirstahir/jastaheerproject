@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container py-4">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card border-0 shadow-lg rounded-4" style="background-color: #fff8f0;">
+        <div class="card-body p-4 text-center">
+
+          <!-- Profile Picture -->
+          <div class="mb-4">
+            {% if user.profile.profile_image %}
+  <img src="{{ user.profile.profile_image.url }}" alt="Profile Picture"
+       class="rounded-circle border border-3 shadow"
+       style="width: 120px; height: 120px; object-fit: cover;">
+{% else %}
+  <img src="{% static 'images/default-profile.png' %}" alt="Default Profile"
+       class="rounded-circle border border-3 shadow"
+       style="width: 120px; height: 120px; object-fit: cover;">
+{% endif %}
+          </div>
+
+          <!-- Welcome -->
+          <h3 class="fw-bold text-brown">{{ user.first_name|default:user.username }}</h3>
+          <p class="text-muted mb-4">Welcome back to your profile</p>
+
+          <!-- Stats -->
+          <div class="row text-center mb-4">
+            <div class="col-4">
+              <h5 class="fw-bold text-brown">{{ post_count }}</h5>
+              <small class="text-muted">Posts</small>
+            </div>
+            <div class="col-4">
+              <h5 class="fw-bold text-brown">{{ comment_count }}</h5>
+              <small class="text-muted">Comments</small>
+            </div>
+            <div class="col-4">
+              <h5 class="fw-bold text-brown">{{ like_count }}</h5>
+              <small class="text-muted">Likes</small>
+            </div>
+          </div>
+
+          <!-- Personal Info -->
+
+          <div class="text-start px-3">
+            <p><strong class="text-brown">Username:</strong> {{ user.username }}</p>
+            <p><strong class="text-brown">Email:</strong> {{ user.email }}</p>
+            {% if user.first_name or user.last_name %}
+              <p><strong class="text-brown">Full Name:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+            {% endif %}
+            {% if user.profile.bio %}
+              <p><strong class="text-brown">Bio:</strong> {{ user.profile.bio }}</p>
+            {% endif %}
+            <p><strong class="text-brown">Member Since:</strong> {{ user.date_joined|date:"F j, Y" }}</p>
+            <p><strong class="text-brown">Last Login:</strong> {{ user.last_login|date:"F j, Y, g:i A" }}</p>
+          
+          </div>
+
+          <!-- Social Links -->
+          {% if user.profile.linkedin or user.profile.github %}
+          <div class="mt-3">
+            {% if user.profile.linkedin %}
+              <a href="{{ user.profile.linkedin }}" class="me-3" target="_blank">
+                <i class="bi bi-linkedin" style="font-size: 1.5rem; color: #0077b5;"></i>
+              </a>
+            {% endif %}
+            {% if user.profile.github %}
+              <a href="{{ user.profile.github }}" target="_blank">
+                <i class="bi bi-github" style="font-size: 1.5rem; color: #333;"></i>
+              </a>
+            {% endif %}
+          </div>
+          {% endif %}
+
+          <!-- Edit Button -->
+          <div class="mt-4">
+            <a href="{% url 'edit_profile' %}" class="btn btn-lg" style="background-color: #5a3e2b; color: #fff;">
+              <i class="bi bi-pencil me-1"></i> Edit Profile
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog Posts -->
+      <div class="mt-5">
+        <h4 class="text-brown mb-3 text-center">Your Blog Posts</h4>
+        {% for post in posts %}
+        <div class="card mb-4 shadow-sm rounded-3">
+          <div class="row g-0 flex-column flex-md-row">
+            {% if post.image %}
+            <div class="col-md-4">
+              <img src="{{ post.image.url }}" class="img-fluid h-100 rounded-start" alt="{{ post.title }}" style="object-fit: cover;">
+            </div>
+            {% endif %}
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <a href="{% url 'blog_detail' post.id %}" class="text-decoration-none text-dark">
+                    {{ post.title }}
+                  </a>
+                </h5>
+                <p class="card-text">{{ post.content|truncatewords:20 }}</p>
+                <p class="card-text">
+                  <small class="text-muted">Published on {{ post.created_at|date:"M d, Y" }}</small>
+                </p>
+                <a href="{% url 'update_post' post.id %}" class="btn btn-sm" style="background-color: #5a3e2b; color: white;">Edit</a>
+                <a href="{% url 'delete_post' post.id %}" class="btn btn-sm btn-outline-danger ms-2">Delete</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% empty %}
+        <p class="text-muted text-center">You haven’t created any blog posts yet.</p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .text-brown {
+    color: #5a3e2b;
+  }
+
+  @media (max-width: 576px) {
+    .card-body {
+      padding: 1rem;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+    }
+
+    .btn {
+      font-size: 0.9rem;
+    }
+  }
+</style>
+{% endblock %}

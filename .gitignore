@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django
+*.log
+*.pot
+*.pyc
+db.sqlite3
+local_settings.py
+
+# Environment
+.env
+*.env
+
+# Migrations
+**/migrations/
+**/migrations/*.py
+**/migrations/*.pyc
+
+# Static and Media (if generated or user-uploaded)
+staticfiles/
+media/
+
+# VSCode
+.vscode/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+.pyre/
+.pytype/
+
+# Coverage reports
+htmlcov/
+.coverage
+coverage.xml
+*.cover
+.cache
+nosetests.xml
+test-results.xml
+
+# Pytest
+.pytest_cache/
+
+# Pipenv / Poetry
+Pipfile.lock
+poetry.lock

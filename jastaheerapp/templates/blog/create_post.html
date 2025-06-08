@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}New Blog Post{% endblock %}
+
+{% block content %}
+{% if not request.user.is_authenticated or not request.user.is_staff %}
+  <div class="alert alert-danger mt-5 text-center" role="alert">
+    You are not authorized to create a blog post.
+  </div>
+{% else %}
+<section class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h2 class="mb-4 text-center">{{ form.instance.id|yesno:"Edit Post,New Post" }}</h2>
+
+      <form method="post" enctype="multipart/form-data" novalidate class="p-4 shadow rounded" style="background-color: #fff;">
+        {% csrf_token %}
+
+        <div class="mb-3">
+          <label for="id_title" class="form-label">Title</label>
+          {{ form.title|add_class:"form-control" }}
+        </div>
+
+        <div class="mb-3">
+          <label for="id_category" class="form-label">Category</label>
+          {{ form.category|add_class:"form-control" }}
+        </div>
+
+        <div class="mb-3">
+          <label for="id_content" class="form-label">Content</label>
+          {{ form.content|add_class:"form-control" }}
+        </div>
+
+        <div class="mb-3">
+          <label for="id_image" class="form-label">Image</label>
+          {{ form.image|add_class:"form-control" }}
+        </div>
+
+        <button type="submit" class="btn btn-brown">Save Post</button>
+      </form>
+    </div>
+  </div>
+</section>
+{% endif %}
+{% endblock %}

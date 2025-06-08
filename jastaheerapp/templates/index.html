@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section with Background -->
+<section class="hero-section d-flex align-items-center text-white">
+  <div class="container text-center">
+    <h1 class="fw-bold">Empowering Businesses with Digital Solutions</h1>
+    <p class="lead">Custom Software, Stunning Websites, Scalable Mobile Apps & cheap Data</p>
+    <li class="nav-item ms-3"><a class="btn btn-success btn-lg" href="#" data-bs-toggle="modal" data-bs-target="#buyDataModal">Buy Data</a></li>
+  </div>
+</section>
+
+<section class="py-5 bg-light text-brown">
+  <div class="container">
+    <h2 class="text-center mb-4 text-brown">What We Do</h2>
+    <div class="row text-center">
+      {% for service in services %}
+        {% if service.slug %}
+        <div class="col-md-3 mb-4">
+          <a href="{% url 'service_detail' slug=service.slug %}" class="text-decoration-none text-brown">
+            <div class="icon-box p-3 bg-white rounded shadow-sm h-100">
+              {% if service.icon %}
+                <img src="{{ service.icon }}" alt="{{ service.name }}" width="50" height="50" class="mb-3">
+              {% else %}
+                <!-- fallback image or icon -->
+                <img src="{% static 'default-service-icon.png' %}" alt="Default Icon" width="50" height="50" class="mb-3">
+              {% endif %}
+              <h5 class="fw-bold mt-2">{{ service.name }}</h5>
+              <p class="small">{{ service.description|truncatewords:15 }}</p>
+            </div>
+          </a>
+        </div>
+        {% endif %}
+      {% empty %}
+        <p class="text-center">No services available right now.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Support Section -->
+<section class="py-5 bg-dark text-brown">
+  <div class="container">
+    <h2 class="text-center mb-4">Support</h2>
+    <div class="row text-center">
+      {% for feature in features %}
+      <div class="col-md-3 mb-4">
+        <div class="icon-box bg-white p-3 rounded shadow-sm h-100">
+          {% if feature.icon %}
+            <img src="{{ feature.icon }}" alt="{{ feature.name }}" width="50" height="50" class="mb-3">
+          {% else %}
+            <img src="{% static 'images/default-support-icon.png' %}" alt="Default Support Icon" width="50" height="50" class="mb-3">
+          {% endif %}
+          <h5 class="mt-2">{{ feature.name }}</h5>
+          <p class="small text-brown">{{ feature.description }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Latest News -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <h2 class="text-center mb-4 text-brown">Latest News</h2>
+    <div class="row">
+      {% for news in news_feed %}
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title text-brown">{{ news.title }}</h5>
+            <p class="card-text">{{ news.summary|truncatechars:120 }}</p>
+            <a href="{% url 'news_detail' news.slug %}" class="btn btn-sm btn-outline-brown">Read More</a>
+          </div>
+          <div class="card-footer text-muted small">
+            Posted on {{ news.created_at|date:"F j, Y" }}
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <p class="text-center">No news updates available at the moment.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Directors Section -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-4 text-brown">Our Company Directors</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      {% for director in directors %}
+  <div class="col">
+    <div class="card h-100 text-center custom-card">
+      {% if director.image %}
+  <img src="{{ director.image.url }}" class="card-img-center" alt="{{ director.name }}">
+{% else %}
+  <img src="{% static 'default-profile.png' %}" class="card-img-center" alt="Default profile">
+{% endif %}
+      <div class="card-body">
+        <h5 class="card-title text-brown">{{ director.name }}</h5>
+        <p class="card-text">{{ director.position }}</p>
+        {% if director.role %}
+          <p class="card-text">{{ director.role }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Team Section -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <h2 class="text-center mb-4 text-brown">Our Team</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      {% for staff in staff_members %}
+      <div class="col">
+        <div class="card h-100 text-center custom-card">
+          {% if staff.image %}
+  <img src="{{ staff.image.url }}" class="card-img-center" alt="{{ staff.name }}">
+{% else %}
+  <img src="{% static 'default-profile.png' %}" class="card-img-center" alt="Default profile">
+{% endif %}
+          <div class="card-body">
+            <h5 class="card-title text-brown">{{ staff.name }}</h5>
+            <p class="card-text">{{ staff.position }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

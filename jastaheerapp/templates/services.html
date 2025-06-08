@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %} Services {% endblock %}
+
+{% block content %}
+  <div class="container py-5">
+    <h2 class="text-center mb-5 fw-bold text-white">Services</h2>
+    <div class="row g-4">
+      <!-- Software Development -->
+      <div class="col-md-6 col-lg-3">
+        <div class="p-4 bg-white text-center service-card">
+          <div class="service-icon">&lt;/&gt;</div>
+          <h5 class="fw-bold">Software Development</h5>
+          <p>We build secure, scalable, and high-performing software tailored to your unique business goals, including ERP systems, automation tools, and cloud-native applications.</p>
+        </div>
+      </div>
+      
+      <!-- Website Development -->
+      <div class="col-md-6 col-lg-3">
+        <div class="p-4 bg-white text-center service-card">
+          <div class="service-icon">&#128187;</div>
+          <h5 class="fw-bold">Website Development</h5>
+          <p>We design and develop modern, responsive websites that are optimized for SEO, performance, and user experience — perfect for businesses, portfolios, or eCommerce platforms.</p>
+        </div>
+      </div>
+      
+      <!-- Mobile App Development -->
+      <div class="col-md-6 col-lg-3">
+        <div class="p-4 bg-white text-center service-card">
+          <div class="service-icon">&#128241;</div>
+          <h5 class="fw-bold">Mobile App Development</h5>
+          <p>From concept to launch, we deliver high-quality iOS and Android apps using native or cross-platform technologies that engage your users and grow your brand.</p>
+        </div>
+      </div>
+      
+      <!-- UI/UX Design -->
+      <div class="col-md-6 col-lg-3">
+        <div class="p-4 bg-white text-center service-card">
+          <div class="service-icon">&#9998;</div>
+          <h5 class="fw-bold">UI/UX Design</h5>
+          <p>Our design team creates visually appealing, user-focused interfaces that prioritize usability, accessibility, and brand consistency across all platforms.</p>
+        </div>
+      </div>
+
+      <!-- IT Consulting -->
+      <div class="col-md-6 col-lg-3">
+        <div class="p-4 bg-white text-center service-card">
+          <div class="service-icon">&#128736;</div>
+          <h5 class="fw-bold">IT Consulting</h5>
+          <p>We provide strategic guidance on technology adoption, infrastructure optimization, and digital transformation to help your business stay ahead in a competitive market.</p>
+        </div>
+      </div>
+
+      <!-- Maintenance & Support -->
+      <div class="col-md-6 col-lg-3">
+        <div class="p-4 bg-white text-center service-card">
+          <div class="service-icon">&#128295;</div>
+          <h5 class="fw-bold">Maintenance & Support</h5>
+          <p>We ensure your systems and applications stay updated, secure, and running smoothly through regular maintenance and responsive technical support.</p>
+        </div>
+      </div>
+    </div>
+    <a href="{% url 'home' %}" class="btn mt-4" style="background-color: #6f4e37; color: white;">
+          ← Back
+        </a>
+  </div>
+{% endblock %}
